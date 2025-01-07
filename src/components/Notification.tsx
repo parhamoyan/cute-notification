@@ -9,11 +9,14 @@ interface NotificationProps {
 export default function Notification({
   notification,
 }: NotificationProps): JSX.Element {
+  const capitalizeStatus = (status: string) =>
+    status.charAt(0).toUpperCase() + status.slice(1);
+
   return (
     <div className="notif">
       <div className="top-frame">
         <span className={`status ${notification.status}`}>
-          {notification.status}
+          {capitalizeStatus(notification.status)}
         </span>
         <span className="time">{notification.time}</span>
       </div>
